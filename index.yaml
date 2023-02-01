@@ -1,6 +1,33 @@
 apiVersion: v1
 entries:
   alertmanager:
+  - annotations:
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/prometheus-community/helm-charts
+    apiVersion: v2
+    appVersion: v0.25.0
+    created: "2023-02-01T01:50:36.101800567Z"
+    description: The Alertmanager handles alerts sent by client applications such
+      as the Prometheus server.
+    digest: 8e5e533df92fb1a228f9fd6d52e00f764dd8e8e36e849653dc0634d1d0ef21b9
+    home: https://prometheus.io/
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    keywords:
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: monotek23@gmail.com
+      name: monotek
+    - email: naseem@transit.app
+      name: naseemkullah
+    name: alertmanager
+    sources:
+    - https://github.com/prometheus/alertmanager
+    type: application
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/alertmanager-0.25.0/alertmanager-0.25.0.tgz
+    version: 0.25.0
   - apiVersion: v2
     appVersion: v0.22.1
     created: "2021-07-20T19:48:19.121743885Z"
@@ -473,7 +500,88 @@ entries:
     urls:
     - https://github.com/prometheus-community/helm-charts/releases/download/alertmanager-0.1.0/alertmanager-0.1.0.tgz
     version: 0.1.0
+  jiralert:
+  - apiVersion: v2
+    appVersion: "1.2"
+    created: "2023-02-01T01:50:36.275529743Z"
+    description: A Helm chart for Kubernetes to install jiralert
+    digest: 5bece5886bfe584e97124a7e0a45b2b15001c370aec7653e520499547f238eb4
+    home: https://github.com/prometheus-community/jiralert
+    keywords:
+    - monitoring
+    - prometheus
+    - alerting
+    - jiralert
+    maintainers:
+    - email: github@jkroepke.de
+      name: jkroepke
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    name: jiralert
+    type: application
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/jiralert-1.0.1/jiralert-1.0.1.tgz
+    version: 1.0.1
   kube-prometheus-stack:
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/prometheus-community/helm-charts
+        - name: Upstream Project
+          url: https://github.com/prometheus-operator/kube-prometheus
+      artifacthub.io/operator: "true"
+    apiVersion: v2
+    appVersion: v0.62.0
+    created: "2023-02-01T01:50:36.497749604Z"
+    dependencies:
+    - condition: kubeStateMetrics.enabled
+      name: kube-state-metrics
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 4.24.*
+    - condition: nodeExporter.enabled
+      name: prometheus-node-exporter
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 4.8.*
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.50.*
+    description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards,
+      and Prometheus rules combined with documentation and scripts to provide easy
+      to operate end-to-end Kubernetes cluster monitoring with Prometheus using the
+      Prometheus Operator.
+    digest: 36a767367ef66d812e666ff147fda279d5bdbf81a4ee3c19049bfe1e7601df6f
+    home: https://github.com/prometheus-operator/kube-prometheus
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    keywords:
+    - operator
+    - prometheus
+    - kube-prometheus
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: andrew@quadcorps.co.uk
+      name: andrewgkew
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    - email: github.gkarthiks@gmail.com
+      name: gkarthiks
+    - email: kube-prometheus-stack@sisti.pt
+      name: GMartinez-Sisti
+    - email: scott@r6by.com
+      name: scottrigby
+    - email: miroslav.hadzhiev@gmail.com
+      name: Xtigyro
+    - email: quentin.bisson@gmail.com
+      name: QuentinBisson
+    name: kube-prometheus-stack
+    sources:
+    - https://github.com/prometheus-community/helm-charts
+    - https://github.com/prometheus-operator/kube-prometheus
+    type: application
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/kube-prometheus-stack-44.3.0/kube-prometheus-stack-44.3.0.tgz
+    version: 44.3.0
   - annotations:
       artifacthub.io/links: |
         - name: Chart Source
@@ -10552,6 +10660,31 @@ entries:
     version: 9.3.4
   kube-state-metrics:
   - apiVersion: v2
+    appVersion: 2.7.0
+    created: "2023-02-01T01:50:36.67016337Z"
+    description: Install kube-state-metrics to generate and expose cluster-level metrics
+    digest: 17ca0bf1fa6635339b85335f92c0537a34568b57faf0dfea73d9cd2f6d277fd4
+    home: https://github.com/kubernetes/kube-state-metrics/
+    keywords:
+    - metric
+    - monitoring
+    - prometheus
+    - kubernetes
+    maintainers:
+    - email: tariq.ibrahim@mulesoft.com
+      name: tariq1890
+    - email: manuel@rueg.eu
+      name: mrueg
+    - email: david@0xdc.me
+      name: dotdc
+    name: kube-state-metrics
+    sources:
+    - https://github.com/kubernetes/kube-state-metrics/
+    type: application
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/kube-state-metrics-4.29.0/kube-state-metrics-4.29.0.tgz
+    version: 4.29.0
+  - apiVersion: v2
     appVersion: 2.2.0
     created: "2021-08-24T14:17:39.617137187Z"
     description: Install kube-state-metrics to generate and expose cluster-level metrics
@@ -10895,7 +11028,81 @@ entries:
     urls:
     - https://github.com/prometheus-community/helm-charts/releases/download/kube-state-metrics-2.13.2/kube-state-metrics-2.13.2.tgz
     version: 2.13.2
+  prom-label-proxy:
+  - apiVersion: v2
+    appVersion: v0.5.0
+    created: "2023-02-01T01:50:36.862003789Z"
+    description: A proxy that enforces a given label in a given PromQL query.
+    digest: ef023e8fe94a3f97e7cced3f095e108111acec1c7a202d46636e7a0b9f3cc94c
+    home: https://github.com/prometheus-community/prom-label-proxy
+    keywords:
+    - metric
+    - monitoring
+    - prometheus
+    maintainers:
+    - email: github@jkroepke.de
+      name: jkroepke
+    name: prom-label-proxy
+    type: application
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prom-label-proxy-0.1.0/prom-label-proxy-0.1.0.tgz
+    version: 0.1.0
   prometheus:
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/prometheus-community/helm-charts
+        - name: Upstream Project
+          url: https://github.com/prometheus/prometheus
+    apiVersion: v2
+    appVersion: v2.41.0
+    created: "2023-02-01T01:50:37.058015942Z"
+    dependencies:
+    - condition: alertmanager.enabled
+      name: alertmanager
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 0.24.*
+    - condition: kube-state-metrics.enabled
+      name: kube-state-metrics
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 4.24.*
+    - condition: prometheus-node-exporter.enabled
+      name: prometheus-node-exporter
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 4.8.*
+    - condition: prometheus-pushgateway.enabled
+      name: prometheus-pushgateway
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 2.0.*
+    description: Prometheus is a monitoring system and time series database.
+    digest: 4d5e2f1709dd58537682e2209e328c7791e807b772392c92e99885c6eb5e541e
+    home: https://prometheus.io/
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    keywords:
+    - monitoring
+    - prometheus
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    - email: miroslav.hadzhiev@gmail.com
+      name: Xtigyro
+    - email: naseem@transit.app
+      name: naseemkullah
+    name: prometheus
+    sources:
+    - https://github.com/prometheus/alertmanager
+    - https://github.com/prometheus/prometheus
+    - https://github.com/prometheus/pushgateway
+    - https://github.com/prometheus/node_exporter
+    - https://github.com/kubernetes/kube-state-metrics
+    type: application
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-19.3.3/prometheus-19.3.3.tgz
+    version: 19.3.3
   - apiVersion: v2
     appVersion: 2.26.0
     created: "2021-08-10T10:53:02.123857963Z"
@@ -17637,6 +17844,30 @@ entries:
     version: 1.3.1
   prometheus-adapter:
   - apiVersion: v1
+    appVersion: v0.10.0
+    created: "2023-02-01T01:50:37.216270096Z"
+    description: A Helm chart for k8s prometheus adapter
+    digest: e64e703ab25d32b738edc571c2746466f84777750cd38314a2c46dbfeda2891d
+    home: https://github.com/kubernetes-sigs/prometheus-adapter
+    keywords:
+    - hpa
+    - metrics
+    - prometheus
+    - adapter
+    maintainers:
+    - email: mattias.gees@jetstack.io
+      name: mattiasgees
+    - name: steven-sheehy
+    - email: hfernandez@mesosphere.com
+      name: hectorj2f
+    name: prometheus-adapter
+    sources:
+    - https://github.com/kubernetes/charts
+    - https://github.com/kubernetes-sigs/prometheus-adapter
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-adapter-4.1.1/prometheus-adapter-4.1.1.tgz
+    version: 4.1.1
+  - apiVersion: v1
     appVersion: v0.9.0
     created: "2021-09-04T21:50:27.644840409Z"
     description: A Helm chart for k8s prometheus adapter
@@ -19014,6 +19245,33 @@ entries:
     version: v0.0.1
   prometheus-blackbox-exporter:
   - apiVersion: v2
+    appVersion: 0.23.0
+    created: "2023-02-01T01:50:37.380210895Z"
+    description: Prometheus Blackbox Exporter
+    digest: 8786ed8a5782a204e04c835139d242f8b9cc263ec806d1add2091e77d7bb4848
+    home: https://github.com/prometheus/blackbox_exporter
+    keywords:
+    - prometheus
+    - blackbox
+    - monitoring
+    maintainers:
+    - email: cedric@desaintmartin.fr
+      name: desaintmartin
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    - email: me@sota.sh
+      name: rsotnychenko
+    - email: monotek23@gmail.com
+      name: monotek
+    name: prometheus-blackbox-exporter
+    sources:
+    - https://github.com/prometheus/blackbox_exporter
+    - https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-blackbox-exporter
+    type: application
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-blackbox-exporter-7.2.0/prometheus-blackbox-exporter-7.2.0.tgz
+    version: 7.2.0
+  - apiVersion: v2
     appVersion: 0.19.0
     created: "2021-07-21T07:27:32.11791383Z"
     description: Prometheus Blackbox Exporter
@@ -20343,6 +20601,30 @@ entries:
     version: 0.1.0
   prometheus-cloudwatch-exporter:
   - apiVersion: v1
+    appVersion: 0.15.0
+    created: "2023-02-01T01:50:37.539122854Z"
+    description: A Helm chart for prometheus cloudwatch-exporter
+    digest: c142f5f54c70f4b91609a6e86473ed157becf42b985ce82204a756e54028dbf5
+    home: https://github.com/prometheus/cloudwatch_exporter
+    keywords:
+    - aws
+    - cloudwatch
+    - prometheus
+    - exporter
+    maintainers:
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    - email: mail@torstenwalter.de
+      name: torstenwalter
+    - email: asher@asherfoa.com
+      name: asherf
+    name: prometheus-cloudwatch-exporter
+    sources:
+    - https://github.com/prometheus/cloudwatch_exporter
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-cloudwatch-exporter-0.22.0/prometheus-cloudwatch-exporter-0.22.0.tgz
+    version: 0.22.0
+  - apiVersion: v1
     appVersion: 0.10.0
     created: "2021-05-03T17:26:02.650638251Z"
     description: A Helm chart for prometheus cloudwatch-exporter
@@ -21257,7 +21539,48 @@ entries:
     urls:
     - https://prometheus-community.github.io/helm-charts/prometheus-cloudwatch-exporter-0.1.0.tgz
     version: 0.1.0
+  prometheus-conntrack-stats-exporter:
+  - apiVersion: v2
+    appVersion: v0.4.11
+    created: "2023-02-01T01:50:37.693987381Z"
+    description: A Helm chart for conntrack-stats-exporter
+    digest: 1626959715a191289ebf29f8ddc57c0aa78bea9c863ffafce1f4cf6e98512944
+    home: https://github.com/jwkohnen/conntrack-stats-exporter
+    keywords:
+    - conntrack
+    - monitoring
+    - prometheus
+    maintainers:
+    - email: monotek23@gmail.com
+      name: monotek
+    name: prometheus-conntrack-stats-exporter
+    sources:
+    - https://github.com/jwkohnen/conntrack-stats-exporter
+    - https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-conntrack-stats-exporter
+    type: application
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-conntrack-stats-exporter-0.5.5/prometheus-conntrack-stats-exporter-0.5.5.tgz
+    version: 0.5.5
   prometheus-consul-exporter:
+  - apiVersion: v1
+    appVersion: 0.4.0
+    created: "2023-02-01T01:50:37.84665489Z"
+    description: A Helm chart for the Prometheus Consul Exporter
+    digest: 6afe10f5f3d82bc2f3a4a77ba6ce252b68b0cdbe52bd80aa6861866cc2b32716
+    home: https://github.com/prometheus/consul_exporter
+    keywords:
+    - metrics
+    - consul
+    - monitoring
+    maintainers:
+    - email: 8890118+timm088@users.noreply.github.com
+      name: timm088
+    - email: github.gkarthiks@gmail.com
+      name: gkarthiks
+    name: prometheus-consul-exporter
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-consul-exporter-0.5.1/prometheus-consul-exporter-0.5.1.tgz
+    version: 0.5.1
   - apiVersion: v1
     appVersion: 0.4.0
     created: "2020-12-02T10:48:25.225472997Z"
@@ -21456,6 +21779,23 @@ entries:
   prometheus-couchdb-exporter:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2023-02-01T01:50:38.012187401Z"
+    description: A Helm chart to export the metrics from couchdb in Prometheus format.
+    digest: ba00450b42cdba11d56164be15c17aaaa6cd84d3f039e22fc0a8ed2aab7a5529
+    home: https://github.com/gesellix/couchdb-prometheus-exporter
+    keywords:
+    - couchdb-exporter
+    maintainers:
+    - email: github.gkarthiks@gmail.com
+      name: gkarthiks
+    name: prometheus-couchdb-exporter
+    sources:
+    - https://github.com/gesellix/couchdb-prometheus-exporter
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-couchdb-exporter-0.2.1/prometheus-couchdb-exporter-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2020-11-18T11:35:01.782127965Z"
     description: A Helm chart to export the metrics from couchdb in Prometheus format.
     digest: 1edadd23b8d11b5f6ae20c0cf4d69bf898e23a8468424f615166f5d44c4d1c03
@@ -21540,6 +21880,39 @@ entries:
     - https://prometheus-community.github.io/helm-charts/prometheus-couchdb-exporter-0.1.0.tgz
     version: 0.1.0
   prometheus-druid-exporter:
+  - annotations:
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-druid-exporter
+      artifacthub.io/operator: "true"
+    apiVersion: v2
+    appVersion: v0.11.0
+    created: "2023-02-01T01:50:38.157235151Z"
+    description: Druid exporter to monitor druid metrics with Prometheus
+    digest: 97eafb9d0e532287e7a0d19c64a8778780dcec082db660a93113f69910733b11
+    home: https://github.com/opstree/druid-exporter
+    icon: https://github.com/opstree/druid-exporter/blob/master/static/druid-exporter-logo.svg
+    keywords:
+    - kubernetes
+    - apache
+    - druid
+    - exporter
+    - prometheus
+    - grafana
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: abhishekbhardwaj510@gmail.com
+      name: iamabhishek-dubey
+    - email: sandeep@opstree.com
+      name: sandy724
+    name: prometheus-druid-exporter
+    sources:
+    - https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-druid-exporter
+    - https://github.com/opstree/druid-exporter
+    type: application
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-druid-exporter-1.0.0/prometheus-druid-exporter-1.0.0.tgz
+    version: 1.0.0
   - annotations:
       artifacthub.io/links: |
         - name: Chart Source
@@ -21661,6 +22034,28 @@ entries:
     - https://github.com/prometheus-community/helm-charts/releases/download/prometheus-druid-exporter-0.8.0/prometheus-druid-exporter-0.8.0.tgz
     version: 0.8.0
   prometheus-elasticsearch-exporter:
+  - apiVersion: v1
+    appVersion: 1.5.0
+    created: "2023-02-01T01:50:38.32882801Z"
+    description: Elasticsearch stats exporter for Prometheus
+    digest: 270d720a2744932a40b9c7affb081e0758747909db46d045869a67466b1febb4
+    home: https://github.com/prometheus-community/elasticsearch_exporter
+    keywords:
+    - metrics
+    - elasticsearch
+    - monitoring
+    kubeVersion: '>=1.10.0-0'
+    maintainers:
+    - email: sven.mueller@commercetools.com
+      name: svenmueller
+    - email: cedric@desaintmartin.fr
+      name: desaintmartin
+    name: prometheus-elasticsearch-exporter
+    sources:
+    - https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-elasticsearch-exporter
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-elasticsearch-exporter-5.0.0/prometheus-elasticsearch-exporter-5.0.0.tgz
+    version: 5.0.0
   - apiVersion: v1
     appVersion: 1.2.1
     created: "2021-08-11T15:58:24.29280691Z"
@@ -21853,7 +22248,75 @@ entries:
     urls:
     - https://github.com/prometheus-community/helm-charts/releases/download/prometheus-elasticsearch-exporter-4.0.0/prometheus-elasticsearch-exporter-4.0.0.tgz
     version: 4.0.0
+  prometheus-fastly-exporter:
+  - apiVersion: v2
+    appVersion: 7.2.4
+    created: "2023-02-01T01:50:38.477914191Z"
+    description: A Helm chart for the Prometheus Fastly Exporter
+    digest: 3b0c8c364a68411b4788216e695c9e96baa6815b9b84761fe2e18474e6433721
+    home: https://github.com/fastly/fastly-exporter
+    keywords:
+    - metrics
+    - fastly
+    - monitoring
+    maintainers:
+    - email: arslanbekov@gmail.com
+      name: arslanbekov
+    name: prometheus-fastly-exporter
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-fastly-exporter-0.1.1/prometheus-fastly-exporter-0.1.1.tgz
+    version: 0.1.1
+  prometheus-json-exporter:
+  - apiVersion: v2
+    appVersion: v0.5.0
+    created: "2023-02-01T01:50:38.653996686Z"
+    description: Install prometheus-json-exporter
+    digest: 86bdec7495d6e23a0715183c2daa6be549797afb7b8453cf283a62cc06517fdd
+    keywords:
+    - metric
+    - monitoring
+    - prometheus
+    maintainers:
+    - email: schmiddim@gmx.at
+      name: schmiddim
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    name: prometheus-json-exporter
+    type: application
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-json-exporter-0.6.1/prometheus-json-exporter-0.6.1.tgz
+    version: 0.6.1
   prometheus-kafka-exporter:
+  - annotations:
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-kafka-exporter
+    apiVersion: v2
+    appVersion: v1.6.0
+    created: "2023-02-01T01:50:38.830079581Z"
+    dependencies:
+    - condition: kafka.enabled
+      name: kafka
+      repository: https://charts.bitnami.com/bitnami
+      version: 18.5.0
+    description: A Helm chart to export the metrics from Kafka in Prometheus format
+      using the kafka-exporter from https://github.com/danielqsj/kafka_exporter
+    digest: 6b119d3bd751e74a44d964593acaded0be814dfea2817b412e1eae74f84f50f2
+    home: https://github.com/danielqsj/kafka_exporter
+    keywords:
+    - prometheus
+    - kafka
+    maintainers:
+    - email: github.gkarthiks@gmail.com
+      name: gkarthiks
+    - email: golgoth31@notrenet.com
+      name: golgoth31
+    name: prometheus-kafka-exporter
+    sources:
+    - https://gkarthiks.github.io/helm-charts/charts/prometheus-kafka-exporter
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-kafka-exporter-1.8.0/prometheus-kafka-exporter-1.8.0.tgz
+    version: 1.8.0
   - annotations:
       artifacthub.io/links: |
         - name: Chart Source
@@ -22105,6 +22568,26 @@ entries:
     - https://github.com/prometheus-community/helm-charts/releases/download/prometheus-kafka-exporter-0.1.4/prometheus-kafka-exporter-0.1.4.tgz
     version: 0.1.4
   prometheus-mongodb-exporter:
+  - apiVersion: v2
+    appVersion: 0.31.0
+    created: "2023-02-01T01:50:39.099796818Z"
+    description: A Prometheus exporter for MongoDB metrics
+    digest: 2e9d90ee609415c80be226539c27c56e0660751b77505f98d76048ab3edf1367
+    home: https://github.com/percona/mongodb_exporter
+    keywords:
+    - exporter
+    - metrics
+    - mongodb
+    - prometheus
+    maintainers:
+    - email: ssheehy@firescope.com
+      name: steven-sheehy
+    name: prometheus-mongodb-exporter
+    sources:
+    - https://github.com/percona/mongodb_exporter
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-mongodb-exporter-3.1.2/prometheus-mongodb-exporter-3.1.2.tgz
+    version: 3.1.2
   - apiVersion: v1
     appVersion: v0.10.0
     created: "2020-08-20T11:30:14.288050387Z"
@@ -22406,6 +22889,23 @@ entries:
     - https://prometheus-community.github.io/helm-charts/prometheus-mongodb-exporter-1.0.0.tgz
     version: 1.0.0
   prometheus-mysql-exporter:
+  - apiVersion: v1
+    appVersion: v0.14.0
+    created: "2023-02-01T01:50:39.284602682Z"
+    description: A Helm chart for prometheus mysql exporter with cloudsqlproxy
+    digest: ad1a702811c06e7a776b33d0ceabddf64268fae08d54ba00278545d14c2bc9d9
+    home: https://github.com/prometheus/mysqld_exporter
+    maintainers:
+    - email: juan.chimienti@gmail.com
+      name: juanchimienti
+    - email: monotek23@gmail.com
+      name: monotek
+    name: prometheus-mysql-exporter
+    sources:
+    - https://github.com/prometheus/mysqld_exporter
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-mysql-exporter-1.12.1/prometheus-mysql-exporter-1.12.1.tgz
+    version: 1.12.1
   - apiVersion: v1
     appVersion: v0.12.1
     created: "2021-08-23T17:16:35.414661488Z"
@@ -22776,6 +23276,27 @@ entries:
     version: 0.1.0
   prometheus-nats-exporter:
   - apiVersion: v1
+    appVersion: 0.10.1
+    created: "2023-02-01T01:50:39.444060445Z"
+    description: A Helm chart for prometheus-nats-exporter
+    digest: b4a46160e601d5606626ef58b67b8b1f547f2cdca834dd4d7306bda6fda6b380
+    home: https://github.com/nats-io/prometheus-nats-exporter
+    keywords:
+    - nats
+    - prometheus
+    - exporter
+    maintainers:
+    - email: okgolove@markeloff.net
+      name: okgolove
+    - email: carlos@carlosbecker.com
+      name: caarlos0
+    name: prometheus-nats-exporter
+    sources:
+    - https://github.com/nats-io/prometheus-nats-exporter
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-nats-exporter-2.10.1/prometheus-nats-exporter-2.10.1.tgz
+    version: 2.10.1
+  - apiVersion: v1
     appVersion: 0.8.0
     created: "2021-08-26T23:27:53.386072529Z"
     description: A Helm chart for prometheus-nats-exporter
@@ -23046,7 +23567,65 @@ entries:
     urls:
     - https://prometheus-community.github.io/helm-charts/prometheus-nats-exporter-1.0.0.tgz
     version: 1.0.0
+  prometheus-nginx-exporter:
+  - annotations:
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/prometheus-community/helm-charts
+        - name: Nginx exporter
+          url: https://github.com/nginxinc/nginx-prometheus-exporter
+      artifacthub.io/maintainers: |
+        - name: nlamirault
+          email: nicolas.lamirault@gmail.com
+    apiVersion: v2
+    appVersion: 0.11.0
+    created: "2023-02-01T01:50:39.630151319Z"
+    dependencies:
+    - condition: nginx.enabled
+      name: nginx
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.2.3
+    description: A Helm chart for the Prometheus NGINX Exporter
+    digest: b6b3c6b0d15028e1a3f4bd3c11a1a2362e12f63227ce16cebffbb9b8e2682188
+    home: https://github.com/nginxinc/nginx-prometheus-exporter
+    icon: https://raw.githubusercontent.com/cncf/artwork/master/prometheus/icon/color/prometheus-icon-color.svg
+    keywords:
+    - prometheus
+    - nginx
+    - monitoring
+    maintainers:
+    - email: nicolas.lamirault@gmail.com
+      name: nlamirault
+    name: prometheus-nginx-exporter
+    sources:
+    - https://github.com/nginxinc/nginx-prometheus-exporter
+    - https://github.com/prometheus-community/helm-charts
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-nginx-exporter-0.1.0/prometheus-nginx-exporter-0.1.0.tgz
+    version: 0.1.0
   prometheus-node-exporter:
+  - apiVersion: v2
+    appVersion: 1.5.0
+    created: "2023-02-01T01:50:39.793215211Z"
+    description: A Helm chart for prometheus node-exporter
+    digest: 0b9acee9e3d50bded269e4ffae8d5eb0a2521bc22fd1b50c2d18bbb63a2fc2c8
+    home: https://github.com/prometheus/node_exporter/
+    keywords:
+    - node-exporter
+    - prometheus
+    - exporter
+    maintainers:
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    name: prometheus-node-exporter
+    sources:
+    - https://github.com/prometheus/node_exporter/
+    type: application
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-node-exporter-4.13.0/prometheus-node-exporter-4.13.0.tgz
+    version: 4.13.0
   - apiVersion: v2
     appVersion: 1.2.2
     created: "2021-08-19T09:55:21.200827157Z"
@@ -34845,7 +35424,72 @@ entries:
     urls:
     - https://prometheus-community.github.io/helm-charts/prometheus-operator-0.1.0.tgz
     version: 0.1.0
+  prometheus-operator-crds:
+  - annotations:
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/prometheus-community/helm-charts
+      artifacthub.io/maintainers: |
+        - name: dacamposol
+          email: dacamposol@gmail.com
+        - name: desaintmartin
+          email: cedric@desaintmartin.fr
+    apiVersion: v2
+    appVersion: 0.62.0
+    created: "2023-02-01T01:50:49.985551257Z"
+    description: 'A Helm chart that collects custom resource definitions (CRDs) from
+      the Prometheus Operator, allowing for seamless integration with GitOps tools '
+    digest: 6f78ef871a6368796d32e698952a13fe89aafd662c44ab83c8cc1a108b216527
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    keywords:
+    - prometheus
+    - crds
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: dacamposol@gmail.com
+      name: dacamposol
+    - email: cedric@desaintmartin.fr
+      name: desaintmartin
+    name: prometheus-operator-crds
+    sources:
+    - https://github.com/prometheus-community/helm-charts
+    type: application
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-operator-crds-1.1.0/prometheus-operator-crds-1.1.0.tgz
+    version: 1.1.0
   prometheus-pingdom-exporter:
+  - annotations:
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/prometheus-community/helm-charts
+      artifacthub.io/maintainers: |
+        - name: monotek
+          email: monotek23@gmail.com
+        - name: rpahli
+          email: pahli88@googlemail.com
+    apiVersion: v1
+    appVersion: 20190610-1
+    created: "2023-02-01T01:50:50.155292286Z"
+    description: A Helm chart for Prometheus Pingdom Exporter
+    digest: 7b52e1a36981b51a8f1ef53a08eee96fa30ca2f3da7eab23ca80d50a5232a0b5
+    home: https://github.com/giantswarm/prometheus-pingdom-exporter
+    icon: https://raw.githubusercontent.com/cncf/artwork/master/prometheus/icon/color/prometheus-icon-color.svg
+    keywords:
+    - prometheus
+    - pingdom
+    maintainers:
+    - email: monotek23@gmail.com
+      name: monotek
+    - email: pahli88@googlemail.com
+      name: rpahli
+    name: prometheus-pingdom-exporter
+    sources:
+    - https://github.com/giantswarm/prometheus-pingdom-exporter
+    - https://github.com/camptocamp/prometheus-pingdom-exporter
+    - https://github.com/prometheus-community/helm-charts
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-pingdom-exporter-2.4.1/prometheus-pingdom-exporter-2.4.1.tgz
+    version: 2.4.1
   - annotations:
       artifacthub.io/links: |
         - name: Chart Source
@@ -34911,6 +35555,28 @@ entries:
     - https://github.com/prometheus-community/helm-charts/releases/download/prometheus-pingdom-exporter-2.3.2/prometheus-pingdom-exporter-2.3.2.tgz
     version: 2.3.2
   prometheus-postgres-exporter:
+  - apiVersion: v2
+    appVersion: 0.11.1
+    created: "2023-02-01T01:50:50.331749568Z"
+    description: A Helm chart for prometheus postgres-exporter
+    digest: 501e8a5d9cf017baf2435b2eb80e7f6f621c95660b972635ca7b74dfef1a041e
+    home: https://github.com/prometheus-community/postgres_exporter
+    keywords:
+    - postgresql
+    - prometheus
+    - exporter
+    maintainers:
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    name: prometheus-postgres-exporter
+    sources:
+    - https://github.com/prometheus-community/postgres_exporter
+    type: application
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-postgres-exporter-4.2.1/prometheus-postgres-exporter-4.2.1.tgz
+    version: 4.2.1
   - apiVersion: v2
     appVersion: 0.10.0
     created: "2021-08-23T23:22:02.277292053Z"
@@ -35761,6 +36427,26 @@ entries:
     - https://prometheus-community.github.io/helm-charts/prometheus-postgres-exporter-0.1.0.tgz
     version: 0.1.0
   prometheus-pushgateway:
+  - apiVersion: v2
+    appVersion: v1.5.1
+    created: "2023-02-01T01:50:50.56311508Z"
+    description: A Helm chart for prometheus pushgateway
+    digest: 4ea23eba8bf49cea471a05ea299de917bbcc85e68648526a28796707e7b94300
+    home: https://github.com/prometheus/pushgateway
+    keywords:
+    - pushgateway
+    - prometheus
+    maintainers:
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    - email: christian.staude@staffbase.com
+      name: cstaud
+    name: prometheus-pushgateway
+    sources:
+    - https://github.com/prometheus/pushgateway
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-pushgateway-2.0.4/prometheus-pushgateway-2.0.4.tgz
+    version: 2.0.4
   - apiVersion: v1
     appVersion: 1.3.0
     created: "2021-06-29T14:01:22.177424344Z"
@@ -36630,6 +37316,27 @@ entries:
   prometheus-rabbitmq-exporter:
   - apiVersion: v1
     appVersion: v0.29.0
+    created: "2023-02-01T01:50:50.717097186Z"
+    description: Rabbitmq metrics exporter for prometheus
+    digest: 27b65c27a3879f83a61bc5eb29431cdb6ca3af2c24b75980942563b03607c655
+    home: https://github.com/kbudde/rabbitmq_exporter
+    maintainers:
+    - email: cedric@desaintmartin.fr
+      name: desaintmartin
+    - email: abhishekbhardwaj510@gmail.com
+      name: iamabhishek-dubey
+    - email: juan.chimienti@gmail.com
+      name: juanchimienti
+    - email: monotek23@gmail.com
+      name: monotek
+    name: prometheus-rabbitmq-exporter
+    sources:
+    - https://github.com/kbudde/rabbitmq_exporter
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-rabbitmq-exporter-1.4.0/prometheus-rabbitmq-exporter-1.4.0.tgz
+    version: 1.4.0
+  - apiVersion: v1
+    appVersion: v0.29.0
     created: "2021-04-06T16:00:01.622522434Z"
     description: Rabbitmq metrics exporter for prometheus
     digest: d72f6fae3602805462084e9910ec827a976eaabb5d01c28385e925baf03ffbbd
@@ -36928,6 +37635,27 @@ entries:
     - https://prometheus-community.github.io/helm-charts/prometheus-rabbitmq-exporter-0.1.1.tgz
     version: 0.1.1
   prometheus-redis-exporter:
+  - apiVersion: v2
+    appVersion: v1.44.0
+    created: "2023-02-01T01:50:50.885868308Z"
+    description: Prometheus exporter for Redis metrics
+    digest: 7006ff0a4d67ad7b37579a5d1c0718c97eac4e418501e25d9533877c098ac019
+    home: https://github.com/oliver006/redis_exporter
+    keywords:
+    - prometheus
+    - redis
+    maintainers:
+    - email: arcadie.condrat@gmail.com
+      name: acondrat
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    name: prometheus-redis-exporter
+    sources:
+    - https://github.com/oliver006/redis_exporter
+    type: application
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-redis-exporter-5.3.0/prometheus-redis-exporter-5.3.0.tgz
+    version: 5.3.0
   - apiVersion: v2
     appVersion: 1.27.0
     created: "2021-09-07T05:23:51.735168115Z"
@@ -37657,7 +38385,39 @@ entries:
     urls:
     - https://prometheus-community.github.io/helm-charts/prometheus-redis-exporter-0.1.0.tgz
     version: 0.1.0
+  prometheus-smartctl-exporter:
+  - apiVersion: v2
+    appVersion: v0.8.0
+    created: "2023-02-01T01:50:51.026795712Z"
+    description: A Helm chart for Kubernetes
+    digest: 49b07515a01d068431f82f4d20aee21125565cd160389788e742d275e7fdb782
+    maintainers:
+    - name: kfox1111
+    name: prometheus-smartctl-exporter
+    type: application
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-smartctl-exporter-0.3.1/prometheus-smartctl-exporter-0.3.1.tgz
+    version: 0.3.1
   prometheus-snmp-exporter:
+  - apiVersion: v1
+    appVersion: 0.19.0
+    created: "2023-02-01T01:50:51.175804579Z"
+    description: Prometheus SNMP Exporter
+    digest: 4ab72e68fe8c7eca9a5a9ae88ee03e884ae0fede8a5a5704b15c5bee8cb2f309
+    home: https://github.com/prometheus/snmp_exporter
+    keywords:
+    - prometheus
+    - snmp
+    - monitoring
+    maintainers:
+    - email: maxime@root314.com
+      name: miouge1
+    name: prometheus-snmp-exporter
+    sources:
+    - https://github.com/prometheus/snmp_exporter
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-snmp-exporter-1.2.1/prometheus-snmp-exporter-1.2.1.tgz
+    version: 1.2.1
   - apiVersion: v1
     appVersion: 0.19.0
     created: "2021-08-16T06:34:38.676898947Z"
@@ -37868,6 +38628,27 @@ entries:
     - https://prometheus-community.github.io/helm-charts/prometheus-snmp-exporter-0.0.1.tgz
     version: 0.0.1
   prometheus-stackdriver-exporter:
+  - apiVersion: v1
+    appVersion: 0.12.0
+    created: "2023-02-01T01:50:51.330960894Z"
+    description: Stackdriver exporter for Prometheus
+    digest: b69a6d16426c42adf51367f59f27cea9bac4749d649714ea3fe98e509a3ac14a
+    home: https://www.stackdriver.com/
+    keywords:
+    - metrics
+    - stackdriver
+    - monitoring
+    maintainers:
+    - email: apenney@gmail.com
+      name: apenney
+    - email: pahli88@googlemail.com
+      name: rpahli
+    name: prometheus-stackdriver-exporter
+    sources:
+    - https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-stackdriver-exporter
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-stackdriver-exporter-4.1.0/prometheus-stackdriver-exporter-4.1.0.tgz
+    version: 4.1.0
   - apiVersion: v1
     appVersion: 0.11.0
     created: "2021-09-07T06:25:27.460052512Z"
@@ -38105,6 +38886,29 @@ entries:
         - name: Chart Source
           url: https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-statsd-exporter
     apiVersion: v2
+    appVersion: v0.22.8
+    created: "2023-02-01T01:50:51.469086176Z"
+    description: A Helm chart for prometheus stats-exporter
+    digest: d0176a2762a3ac99fbd056b0b4591c9c29c44fca5a9553554f2d43bd4e07b332
+    home: https://github.com/prometheus/statsd_exporter
+    keywords:
+    - statsd
+    - prometheus
+    - exporter
+    maintainers:
+    - email: d@rovergulf.net
+      name: scDisorder
+    name: prometheus-statsd-exporter
+    sources:
+    - https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-statsd-exporter
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-statsd-exporter-0.7.0/prometheus-statsd-exporter-0.7.0.tgz
+    version: 0.7.0
+  - annotations:
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-statsd-exporter
+    apiVersion: v2
     appVersion: 0.20.0
     created: "2021-03-10T21:16:54.301831224Z"
     description: A Helm chart for prometheus stats-exporter
@@ -38193,6 +38997,22 @@ entries:
     - https://github.com/prometheus-community/helm-charts/releases/download/prometheus-statsd-exporter-0.1.0/prometheus-statsd-exporter-0.1.0.tgz
     version: 0.1.0
   prometheus-to-sd:
+  - apiVersion: v1
+    appVersion: 0.5.2
+    created: "2023-02-01T01:50:51.658067756Z"
+    description: Scrape metrics stored in prometheus format and push them to the Stackdriver
+    digest: cd6108dbca08a70ad722d4b32ebb2e8eae650e65bfc05dc4f28172f0426e3e22
+    home: https://github.com/GoogleCloudPlatform/k8s-stackdriver/tree/master/prometheus-to-sd
+    keywords:
+    - prometheus
+    - stackdriver
+    maintainers:
+    - email: arcadie.condrat@gmail.com
+      name: acondrat
+    name: prometheus-to-sd
+    urls:
+    - https://github.com/Cheshirez/helm-charts/releases/download/prometheus-to-sd-0.4.2/prometheus-to-sd-0.4.2.tgz
+    version: 0.4.2
   - apiVersion: v1
     appVersion: 0.5.2
     created: "2021-01-20T06:42:42.789694014Z"
@@ -38289,4 +39109,4 @@ entries:
     urls:
     - https://prometheus-community.github.io/helm-charts/prometheus-to-sd-0.1.0.tgz
     version: 0.1.0
-generated: "2021-09-07T06:25:27.475079748Z"
+generated: "2023-02-01T01:50:51.666453522Z"
